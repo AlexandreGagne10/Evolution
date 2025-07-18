@@ -30,3 +30,19 @@ python evolution_sim.py --agents 200 --device cuda
 ```
 
 Move the slider at the bottom of the window to accelerate or slow down the simulation.
+
+### Configuration
+
+Key constants controlling the simulation are defined near the top of `evolution_sim.py`:
+
+- `FOOD_PER_ROUND` – number of food dots spawned each round.
+- `MAX_AGE` – maximum lifetime (in rounds) of an agent.
+- `SURVIVAL_FOOD` – minimum food required per round to stay alive.
+- `REPRODUCTION_THRESHOLD` – energy an agent needs before it can reproduce.
+- `REPRODUCTION_COST` – energy cost paid by each parent on reproduction.
+
+Modifying these values allows you to tune the difficulty of survival. Each agent starts with `SURVIVAL_FOOD` energy so it can survive the first round. You can override the starting energy when using the `Simulation` class directly via the `initial_energy` argument.
+
+## License
+
+This project is licensed under the terms of the MIT License. See [LICENSE](LICENSE) for details.
