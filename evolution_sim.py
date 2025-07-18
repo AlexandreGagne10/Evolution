@@ -15,10 +15,10 @@ MOVE_SPEED = 2.0
 
 
 class Simulation:
-    def __init__(self, num_agents: int, device: str = "cpu"):
+    def __init__(self, num_agents: int, device: str = "cpu", initial_energy: int = SURVIVAL_FOOD):
         self.device = torch.device(device)
         self.positions = torch.rand(num_agents, 2, device=self.device) * torch.tensor([WIDTH, HEIGHT], device=self.device)
-        self.energy = torch.zeros(num_agents, device=self.device)
+        self.energy = torch.full((num_agents,), initial_energy, device=self.device)
         self.age = torch.zeros(num_agents, dtype=torch.int32, device=self.device)
         self.food = torch.empty(0, 2, device=self.device)
 
